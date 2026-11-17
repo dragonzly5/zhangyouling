@@ -849,7 +849,7 @@ jobs:
         # (with the exact owners to ask). Always uploaded so the bot can read
         # empty lists too.
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codeowner-details-${{ github.run_id }}
           retention-days: 1
@@ -1059,7 +1059,7 @@ jobs:
         # here, so this job must not depend on write access. The bot never
         # touches PR code, so its write token is safe.
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ci-gate-result-${{ github.run_id }}
           retention-days: 1
@@ -1155,7 +1155,7 @@ jobs:
         # Same artifact contract as the ci-gate job: bot_ci_gate_comment.yml
         # (workflow_run, base repo context) posts it to the PR.
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ci-gate-result-${{ github.run_id }}
           retention-days: 1
